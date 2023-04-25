@@ -20,10 +20,10 @@ const Login = () => {
     if (location.search == '') {
       navigate('/page-not-found')
     }
-    if (parsed.tableId === '') {
-      console.log('error')
-      navigate('/page-not-found')
-    }
+    // if (parsed.tableId === '') {
+    //   console.log('error')
+    //   navigate('/page-not-found')
+    // }
     setTableId(parsed.tableId)
     // console.log(parsed);
   }, [location.search])

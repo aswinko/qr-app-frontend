@@ -39,6 +39,7 @@ function App() {
 
   return (
     <div className="App">
+      hello
       <Routes>
         <Route exact to="/" element={<PrivateRoute />}>
           <Route path="/" exact element={<HomePage />} />
