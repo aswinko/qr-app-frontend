@@ -40,17 +40,17 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route to="/" element={<PrivateRoute />}>
+        <Route exact to="/" element={<PrivateRoute />}>
           <Route path="/" exact element={<HomePage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckOutPage />} />
-          <Route path="/orders" element={<OrderPage />} />
+          <Route path="/cart" exact element={<CartPage />} />
+          <Route path="/checkout" exact element={<CheckOutPage />} />
+          <Route path="/orders" exact element={<OrderPage />} />
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/:slug" element={<FoodItem />} />
+          <Route path="/about" exact element={<AboutPage />} />
+          <Route path="/:slug" exact element={<FoodItem />} />
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/page-not-found" element={<PageNotFound />} />
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/page-not-found" exact element={<PageNotFound />} />
       </Routes>
     </div>
   );
