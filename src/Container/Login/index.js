@@ -17,9 +17,9 @@ const Login = () => {
 
   useEffect(() => {
     const parsed = queryString.parse(location.search)
-    if (location.search == '') {
-      navigate('/page-not-found')
-    }
+    // if (location.search == '') {
+    //   navigate('/page-not-found')
+    // }
     // if (parsed.tableId === '') {
     //   console.log('error')
     //   navigate('/page-not-found')
