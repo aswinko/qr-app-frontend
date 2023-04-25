@@ -7,7 +7,7 @@ import FoodItem from "./Components/FoodItem";
 import Login from "./Container/Login";
 import PageNotFound from "./Container/PageNotFound";
 import PrivateRoute from "./Components/HOC/PrivateRoute";
-import { isUserLoggedIn, updateCart } from "./Actions";
+import { getCartItems, isUserLoggedIn, updateCart } from "./Actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartPage from "./Container/CartPage";
@@ -30,6 +30,12 @@ function App() {
     console.log('App.js - updateCart');
     dispatch(updateCart());
   }, [])
+
+  useEffect(() => {
+    //   if (auth.authenticate){
+    dispatch(getCartItems());
+    //   }
+  }, []);
 
   return (
     <div className="App">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem";
-import { addToCart, getCartItems } from "../../Actions";
+import { addToCart, getCartItems, removeCartItem } from "../../Actions";
 import { useNavigate } from "react-router-dom";
 import PriceDetails from "../../Components/PriceDetails";
 
@@ -17,11 +17,11 @@ const CartPage = (props) => {
     setCartItems(cart.cartItems);
   }, [cart.CartItems]);
 
-  useEffect(() => {
-    //   if (auth.authenticate){
-    dispatch(getCartItems());
-    //   }
-  }, []);
+  // useEffect(() => {
+  //   //   if (auth.authenticate){
+  //   dispatch(getCartItems());
+  //   //   }
+  // }, []);
 
   const onQuantityIncrement = (_id, qty) => {
     console.log(_id, qty);
@@ -33,6 +33,10 @@ const CartPage = (props) => {
     console.log(_id, qty);
     const { name, price, img } = cartItems[_id];
     dispatch(addToCart({ _id, name, price, img }, -1));
+  };
+
+  const onRemoveCartItem = (_id) => {
+    dispatch(removeCartItem({ productId: _id }));
   };
 
   if (props.onlyCartPage) {
@@ -65,6 +69,7 @@ const CartPage = (props) => {
                   cartItems={cartItems[key]}
                   onQuantityInc={onQuantityIncrement}
                   onQuantityDec={onQuantityDecrement}
+                  removeCartItem={onRemoveCartItem}
                 />
               ))
             }

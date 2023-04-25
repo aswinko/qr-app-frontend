@@ -70,6 +70,7 @@ const CartItem = (props) => {
           </div>
           <div className="flex items-center space-x-4">
             <p className="text-sm font-semibold">{price} ₹</p>
+            <button onClick={() => props.removeCartItem(_id)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -84,6 +85,7 @@ const CartItem = (props) => {
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>
+            </button>
           </div>
         </div>
       </div>
