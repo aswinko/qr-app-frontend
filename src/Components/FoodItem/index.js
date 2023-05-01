@@ -8,7 +8,6 @@ import { IMG_URL } from "../../urlConfig";
 import { addToCart } from "../../Actions/cart.actions";
 
 const FoodItem = (props) => {
-  const [minus, setMinus] = useState(0);
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
   const { slug } = useParams();

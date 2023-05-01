@@ -39,7 +39,6 @@ function App() {
 
   return (
     <div className="App">
-      hello
       <Routes>
         <Route exact to="/" element={<PrivateRoute />}>
           <Route path="/" exact element={<HomePage />} />
@@ -50,8 +49,8 @@ function App() {
           <Route path="/about" exact element={<AboutPage />} />
           <Route path="/:slug" exact element={<FoodItem />} />
         </Route>
-        <Route path="/login?tableid=" exact element={<Login />} />
         <Route path="/page-not-found" exact element={<PageNotFound />} />
+        <Route path="/login/:tableId" exact element={<Login />} />
       </Routes>
     </div>
   );

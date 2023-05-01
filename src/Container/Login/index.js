@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import queryString from 'query-string'
 import axios from 'axios'
 import { API } from '../../urlConfig'
@@ -8,22 +8,24 @@ import { login } from '../../Actions/auth.actions'
 import { nanoid } from 'nanoid'
 
 const Login = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const [tableId, setTableId] = useState('')
+  // const location = useLocation()
+  // const navigate = useNavigate()
+  // const [tableId, setTableId] = useState(null)
   const [name, setName] = useState('')
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const { tableId } = useParams();
 
+  // console.log(tableId);
   // useEffect(() => {
   //   const parsed = queryString.parse(location.search)
-  //   // if (location.search == '') {
-  //   //   navigate('/page-not-found')
-  //   // }
-  //   // if (parsed.tableId === '') {
-  //   //   console.log('error')
-  //   //   navigate('/page-not-found')
-  //   // }
+  //   if (location.search == '') {
+  //     navigate('/page-not-found')
+  //   }
+  //   if (parsed.tableId === '') {
+  //     console.log('error')
+  //     navigate('/page-not-found')
+  //   }
   //   setTableId(parsed.tableId)
   //   // console.log(parsed);
   // }, [location.search])
@@ -66,24 +68,6 @@ const Login = () => {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <form className="space-y-4 md:space-y-6">
-            <div>
-              <label
-                htmlFor="tableId"
-                className="block mb-2 pb-4 text-left text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Enter your Table No :
-              </label>
-              <input
-                type="text"
-                name="tableId"
-                id="tableId"
-                onChange={(e) => setTableId(e.target.value)}
-                value={tableId}
-                className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder=""
-                required
-              />
-            </div>
             <div>
               <label
                 htmlFor="username"

@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import CartPage from "../CartPage";
 import { Button } from "flowbite-react";
 import { addOrder } from "../../Actions/order.actions";
+import {  useNavigate } from "react-router-dom";
 
 const CheckOutPage = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const [cartItems, setCartItems] = useState(cart.cartItems);
 
   const onConfirmOrder = () => {
@@ -32,6 +34,8 @@ const CheckOutPage = () => {
     };
     dispatch(addOrder(payload))
     console.log(payload);
+
+    navigate("/orders")
   };
 
   return (
